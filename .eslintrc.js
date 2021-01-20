@@ -4,9 +4,9 @@ module.exports = {
     node: true,
   },
   extends: [
-    'plugin:vue/vue3-recommended',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:vue/recommended',
     '@vue/typescript/recommended',
     '@vue/prettier',
     '@vue/prettier/@typescript-eslint',
@@ -16,7 +16,6 @@ module.exports = {
     ecmaVersion: 2020,
   },
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
   },
 }
