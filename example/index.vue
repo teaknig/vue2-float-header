@@ -1,5 +1,7 @@
 <template>
-  <div class="hello">{{ hello }}</div>
+  <div class="hello">
+    <FloatHeader>ahahah</FloatHeader>
+  </div>
 </template>
 
 <script>
