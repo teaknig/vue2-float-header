@@ -13,7 +13,9 @@ module.exports = {
     rules: [
       {
         test: /\.vue$/,
-        use: 'vue-loader',
+        use: {
+          loader: 'vue-loader',
+        },
       },
       {
         test: /\.js$/,
@@ -28,26 +30,16 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          {
-            loader: 'vue-style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
-          {
-            loader: 'sass-loader',
-          },
+          'vue-style-loader',
+          { loader: 'css-loader', options: { esModule: false } },
+          'sass-loader',
         ],
       },
       {
         test: /\.css$/i,
         use: [
-          {
-            loader: 'vue-style-loader',
-          },
-          {
-            loader: 'css-loader',
-          },
+          'vue-style-loader',
+          { loader: 'css-loader', options: { esModule: false } },
         ],
       },
     ],
