@@ -12,6 +12,16 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        include: [
+          path.resolve(__dirname, 'src'),
+          path.resolve(__dirname, 'example'),
+        ],
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+      },
+      {
         test: /\.vue$/,
         use: {
           loader: 'vue-loader',
@@ -26,6 +36,11 @@ module.exports = {
             presets: ['@babel/preset-env'],
           },
         },
+      },
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
       {
         test: /\.s[ac]ss$/i,
@@ -43,6 +58,9 @@ module.exports = {
         ],
       },
     ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', 'vue'],
   },
   devServer: {
     contentBase: path.resolve(__dirname, 'example'),
